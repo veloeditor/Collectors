@@ -23,7 +23,11 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-         
+            <div class="form-group">
+                <label asp-for="CollectedDate" class="control-label"></label>
+                <input asp-for="CollectedDate" class="form-control" />
+                <span asp-validation-for="CollectedDate" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="CollectionId" class="control-label"></label>
                 <select asp-for="CollectionId" class="form-control" asp-items="ViewBag.CollectionId"></select>

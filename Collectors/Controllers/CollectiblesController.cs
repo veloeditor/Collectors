@@ -117,7 +117,7 @@ namespace Collectors.Controllers
                 try
                 {
                     var user = await _userManager.GetUserAsync(HttpContext.User);
-                    collectible.CollectedDate = DateTime.Now;
+                    
                     _context.Update(collectible);
                     await _context.SaveChangesAsync();
                 }
