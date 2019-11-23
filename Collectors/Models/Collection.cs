@@ -11,7 +11,7 @@ namespace Collectors.Models
         [MaxLength(55)]
         public string Name { get; set; }
 
-        public List<Collectible> Collectibles {get; set;}
+        public List<Collectible> Collectibles { get; set; } = new List<Collectible>();
 
         [Required]
         public string UserId { get; set; }

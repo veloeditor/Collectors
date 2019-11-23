@@ -45,6 +45,7 @@ namespace Collectors.Controllers
 
             var collection = await _context.Collections
                 .Include(c => c.User)
+                .Include(c => c.Collectibles)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (collection == null)
             {

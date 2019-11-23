@@ -98,7 +98,7 @@ namespace Collectors.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f068fbd1-5111-4a88-bc23-a06fae4318e4",
+                            ConcurrencyStamp = "c7323b3c-9686-4211-87d9-43e54bc1771b",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -106,7 +106,7 @@ namespace Collectors.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECzy525QcCgkO6PeIK9JpucnUY8/3xYHOMy/GjHLKFp87bmGT0ZVaCIpqLhP8wJgww==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFkOqBuPEu9hK5cF10d/6y5yj3dJ/hxskQtgk8jcUJQmkdFRc4LLd9lPM9t5TueWuw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,

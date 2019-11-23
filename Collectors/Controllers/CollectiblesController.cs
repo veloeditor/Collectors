@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Collectors.Data;
 using Collectors.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Collectors.Controllers
 {
+    [Authorize]
     public class CollectiblesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,7 +27,11 @@ namespace Collectors.Controllers
         // GET: Collectibles
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Collectibles.Include(c => c.Collection);
+            
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var applicationDbContext = _context.Collectibles
+                                                .Include(c => c.Collection)
+                                                .Where(c => c.Collection.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -68,6 +74,7 @@ namespace Collectors.Controllers
         {
             if (ModelState.IsValid)
             {
+                viewModel.Collectible.CollectedDate = DateTime.Now;
                 _context.Add(viewModel.Collectible);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -109,6 +116,8 @@ namespace Collectors.Controllers
             {
                 try
                 {
+                    var user = await _userManager.GetUserAsync(HttpContext.User);
+                    collectible.CollectedDate = DateTime.Now;
                     _context.Update(collectible);
                     await _context.SaveChangesAsync();
                 }
@@ -125,7 +134,6 @@ namespace Collectors.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CollectionId"] = new SelectList(_context.Collections, "Id", "Name", collectible.CollectionId);
             return View(collectible);
         }
 

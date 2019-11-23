@@ -14,6 +14,8 @@ namespace Collectors.Models
         public string Description { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Date Collected")]
         public DateTime CollectedDate { get; set; }
 
         public int CollectionId { get; set; }
